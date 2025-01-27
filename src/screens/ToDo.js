@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 const expensiveCalculation = (num) => {
     console.log("Calculating...");
@@ -11,7 +11,8 @@ const expensiveCalculation = (num) => {
 function ToDo() {
     const [count, setCount] = React.useState(0);
     const [todos, setTodos] = React.useState([]);
-    const calculation = expensiveCalculation(count);
+    const calculation = useMemo(() => expensiveCalculation(count), [count]);
+
 
     const incriment = () => {
         setCount(count + 1);
