@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Register.css'
 import { useState } from 'react'
 
@@ -7,15 +7,27 @@ function Register() {
         event.preventDefault(); // Do not Reload the screen on calling this funtion
         console.log("Jai Shri Ram")
     }
-    let age = 19;
+    const [age, setAge] = useState(20);
     let emailId = "ram@gmail.com";
 
-    const [email, setEmail] = useState("ram@gmail.com");
+    const [email, setEmail] = useState();
+
+    function updateAge(event,num){
+      event.preventDefault();
+        setAge(age +num);
+    }
+    useEffect(() => {
+      setEmail("ram@gmail.com")
+      console.log("Ram",email)
+    }, [age])
 
 
   return (
     
         <form>
+          <input type="number" value={age} placeholder="Enter age" />
+          <button onClick={(e)=>updateAge(e,2)}>Submit</button>
+
           {age > 18 && emailId == "ram@gmail.com"? (
             <>
             <div className='form-input'>
