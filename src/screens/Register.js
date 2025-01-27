@@ -5,11 +5,13 @@ function Register() {
         event.preventDefault(); // Do not Reload the screen on calling this funtion
         console.log("Jai Shri Ram")
     }
-    let age = 12;
+    let age = 19;
+    let emailId = "ram@gmail.com";
+
   return (
     
         <form>
-          {age > 18 ? (
+          {age > 18 && emailId == "ram@gmail.com"? (
             <div>
             <input type="email" placeholder="Enter email" />
             <button onClick={handleRegister}>Submit</button>
